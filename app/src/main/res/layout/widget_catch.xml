@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/w_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="14dp"
+    android:paddingEnd="8dp">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_widget_web" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sc_catch"
+            android:textColor="#FFEDE8DC"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/w_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/widget_desc"
+            android:textColor="#FF8793A4"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/w_voice"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/widget_mic_bg"
+        android:contentDescription="@string/sc_say"
+        android:padding="9dp"
+        android:src="@drawable/ic_sc_voice" />
+</LinearLayout>
