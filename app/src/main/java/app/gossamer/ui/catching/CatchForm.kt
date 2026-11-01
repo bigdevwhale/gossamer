@@ -1,9 +1,8 @@
 package app.gossamer.ui.catching
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.speech.RecognizerIntent
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Canvas
@@ -52,15 +51,6 @@ import app.gossamer.ui.theme.C
 import app.gossamer.ui.theme.T
 import app.gossamer.ui.web.Mic
 
-object Speech {
-    fun available(ctx: Context) = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).resolveActivity(ctx.packageManager) != null
-
-    fun intent(ctx: Context) = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-        .putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-        .putExtra(RecognizerIntent.EXTRA_LANGUAGE, if (ctx.ru) "ru-RU" else ctx.resources.configuration.locales[0].toLanguageTag())
-        .putExtra(RecognizerIntent.EXTRA_PROMPT, ctx.getString(R.string.c_say_prompt))
-}
-
 fun kindName(k: Kind) = when (k) {
     Kind.IDEA -> R.string.k_idea
     Kind.QUESTION -> R.string.k_question
@@ -94,28 +84,34 @@ fun CatchForm(initial: String = "", initialKind: Kind = Kind.IDEA, voice: Boolea
     var kind by rememberSaveable { mutableStateOf(initialKind) }
     var busy by remember { mutableStateOf(false) }
     val focus = remember { FocusRequester() }
-    val canSpeak = remember { Speech.available(ctx) }
-    val speech = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { r ->
-        val said = r.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.firstOrNull()
-        if (r.resultCode == Activity.RESULT_OK && !said.isNullOrBlank()) {
-            text = if (text.isBlank()) said.replaceFirstChar { it.uppercase() } else text.trimEnd() + " " + said
-        }
-        runCatching { focus.requestFocus() }
+    var voiceNote by remember { mutableStateOf<Int?>(null) }
+    val speech = rememberVoice(
+        onText = { said -> text = if (text.isBlank()) said.replaceFirstChar { it.uppercase() } else text.trimEnd() + " " + said; voiceNote = null },
+        onFail = { voiceNote = it },
+    )
+    val mic = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { ok -> if (ok) speech.start() else voiceNote = R.string.v_perm }
+    fun listen() {
+        voiceNote = null
+        if (ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) speech.start()
+        else mic.launch(Manifest.permission.RECORD_AUDIO)
     }
     LaunchedEffect(Unit) {
-        if (voice && canSpeak) speech.launch(Speech.intent(ctx)) else runCatching { focus.requestFocus() }
+        if (voice && speech.available) listen() else runCatching { focus.requestFocus() }
     }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Text(stringResource(R.string.c_title), style = T.Title)
         Row(verticalAlignment = Alignment.Top, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            Field(text, { text = it }, stringResource(R.string.c_hint), Modifier.weight(1f).heightIn(min = 110.dp), style = T.Thought, single = false, focus = focus, minLines = 3)
-            if (canSpeak) {
+            val shown = if (speech.listening && speech.partial.isNotBlank()) (if (text.isBlank()) speech.partial else text.trimEnd() + " " + speech.partial) else text
+            Field(shown, { text = it }, stringResource(if (speech.listening) R.string.v_listening else R.string.c_hint), Modifier.weight(1f).heightIn(min = 110.dp), style = T.Thought, single = false, focus = focus, minLines = 3)
+            if (speech.available) {
                 val label = stringResource(R.string.sc_say)
-                Box(Modifier.size(48.dp).clip(CircleShape).background(C.deep).border(1.dp, C.line, CircleShape).clickable { speech.launch(Speech.intent(ctx)) }
-                    .semantics { contentDescription = label }, contentAlignment = Alignment.Center) { Mic(Modifier.size(20.dp), C.silk) }
+                Box(Modifier.size(48.dp).clip(CircleShape).background(if (speech.listening) C.amber else C.deep).border(1.dp, if (speech.listening) C.amber else C.line, CircleShape).clickable { listen() }
+                    .semantics { contentDescription = label }, contentAlignment = Alignment.Center) { Mic(Modifier.size(20.dp), if (speech.listening) C.ink else C.silk) }
             }
         }
+        voiceNote?.let { Text(stringResource(it), style = T.Small.copy(color = C.warn)) }
+        if (speech.listening) Text(stringResource(R.string.v_listening_b), style = T.Small.copy(color = C.amber))
         Flow {
             for (k in Kind.entries) Chip(stringResource(kindName(k)), kind == k, { kind = k }, lead = { KindGlyph(k, 18.dp) })
         }

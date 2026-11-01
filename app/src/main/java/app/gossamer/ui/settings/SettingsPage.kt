@@ -99,6 +99,7 @@ fun SettingsPage(s: Settings, nav: Nav) {
         val wm = ctx.getSystemService(AppWidgetManager::class.java)
         if (wm?.isRequestPinAppWidgetSupported == true) Btn(stringResource(R.string.add_widget), {
             wm.requestPinAppWidget(ComponentName(ctx, CatchWidget::class.java), null, null)
+            c.note(ctx.getString(R.string.widget_asked), ctx.getString(R.string.widget_asked_b))
         }, Modifier.fillMaxWidth(), kind = Kind.PLAIN)
         if (Build.VERSION.SDK_INT >= 33) Btn(stringResource(R.string.add_tile), {
             val sb = ctx.getSystemService(StatusBarManager::class.java)

@@ -36,7 +36,12 @@
     <string name="b_lure">Evening: try today’s catch on «%1$s»</string>
     <string name="c_title">What got caught?</string>
     <string name="c_hint">A thought, a question, something you noticed…</string>
-    <string name="c_say_prompt">Say the thought</string>
+    <string name="v_listening">Listening…</string>
+    <string name="v_listening_b">Speak. Tap the microphone again to stop.</string>
+    <string name="v_nothing">Didn’t catch any words. Try again a little closer.</string>
+    <string name="v_perm">Voice needs the microphone. You can allow it in the app’s settings.</string>
+    <string name="v_lang">The phone’s speech service has no pack for this language yet. Use the microphone on the keyboard.</string>
+    <string name="v_none">Speech recognition isn’t working on this phone. Use the microphone on the keyboard.</string>
     <string name="catch_share">Catch in Gossamer</string>
     <string name="sc_catch">Catch a thought</string>
     <string name="sc_say">Say it</string>
@@ -67,7 +72,6 @@
     <string name="t_in_fluff">The wind took this thought to the Fluff.</string>
     <string name="t_is_lure">Hung as a lure: in the evening, today’s catch is offered to it.</string>
     <string name="t_no_threads">No threads yet</string>
-    <string name="t_spin_need">%1$d more thoughts in this cluster and it can be spun into a cocoon.</string>
     <string name="tie">Tie to another thought</string>
     <string name="tie_title">Tie to…</string>
     <string name="tie_none">Nothing to tie to yet.</string>
@@ -95,7 +99,7 @@
     <string name="list_empty">Nothing caught yet.</string>
     <string name="list_none">Nothing like that on the web.</string>
     <string name="fluff">The Fluff</string>
-    <string name="fluff_b">What the wind took: thoughts that hung untied and untouched for %1$d days. They’re not lost. Put one back if it still matters.</string>
+    <string name="fluff_b">What the wind took: thoughts that hung untied and unopened for longer than the wind setting allows. They’re not lost. Put one back if it still matters.</string>
     <string name="fluff_empty">The wind hasn’t taken anything yet.</string>
     <string name="fluff_empty_short">Empty for now</string>
     <string name="fluff_when">caught %1$s, gone %2$s</string>
@@ -129,6 +133,8 @@
     <string name="set_quick">Quick ways in</string>
     <string name="set_quick_b">Long-press the app icon for «Catch» and «Say it». Select text in any app or tap «Share» to catch it. And:</string>
     <string name="add_widget">Put the widget on the home screen</string>
+    <string name="widget_asked">The widget is on its way</string>
+    <string name="widget_asked_b">Some phones put it on the last home screen without asking. If it isn’t there, long-press the home screen, open Widgets and find Gossamer.</string>
     <string name="add_tile">Add a tile to quick settings</string>
     <string name="set_sound">The faint ting</string>
     <string name="set_lang">Language</string>
@@ -157,6 +163,10 @@
     <string name="about">About</string>
     <string name="about_text">Gossamer %1$s. Free, no ads, no accounts, no internet. Fonts: Cormorant, Lora, Caveat (SIL OFL). MIT licence.</string>
     <string name="source">Source code on GitHub</string>
+    <plurals name="t_spin_need">
+        <item quantity="one">%1$d more thought in this cluster and it can be spun into a cocoon.</item>
+        <item quantity="other">%1$d more thoughts in this cluster and it can be spun into a cocoon.</item>
+    </plurals>
     <plurals name="on_web">
         <item quantity="one">%1$d thought on the web</item>
         <item quantity="other">%1$d thoughts on the web</item>

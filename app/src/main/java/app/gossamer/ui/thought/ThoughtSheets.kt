@@ -118,7 +118,7 @@ fun ThoughtSheet(h: Home, t: Thought, nav: Nav) {
 
         val cluster = h.cluster(t.id)
         if (cluster.size >= Web.COCOON_MIN) Btn(stringResource(R.string.spin_from), { nav.spin(t.id) }, Modifier.fillMaxWidth())
-        else if (cluster.size >= 2) Text(stringResource(R.string.t_spin_need, Web.COCOON_MIN - cluster.size), style = T.Small)
+        else if (cluster.size >= 2) Text(pluralStringResource(R.plurals.t_spin_need, Web.COCOON_MIN - cluster.size, Web.COCOON_MIN - cluster.size), style = T.Small)
 
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
             if (!editing) Btn(stringResource(R.string.edit), { editing = true }, kind = BtnKind.QUIET)

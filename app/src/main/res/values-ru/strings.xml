@@ -25,7 +25,7 @@
     <string name="ob2_t">Тяни нити</string>
     <string name="ob2_b">Зажми мысль и протяни нить к другой. Чем больше нитей, тем ближе она к центру: так проступают твои настоящие темы. Каждое утро на несколько старых мыслей выпадает роса. Непривязанные мысли через месяц уносит ветер.</string>
     <string name="ob3_t">Выпусти бабочку</string>
-    <string name="ob3_b">Когда вместе держатся пять мыслей или больше, сверни их в кокон. Через три дня он созреет: перечитай, что внутри, скажи одной фразой, к чему всё это, и вылетит бабочка. Коллекция бабочек — это мысли, из которых что-то выросло.</string>
+    <string name="ob3_b">Когда вместе держатся пять мыслей или больше, свей из них кокон. Через три дня он созреет: перечитай, что внутри, скажи одной фразой, к чему всё это, и вылетит бабочка. Коллекция бабочек — это мысли, из которых что-то выросло.</string>
     <string name="web_a11y">Паутина: мыслей %1$d. Нажми на мысль, чтобы открыть её. Зажми и веди к другой, чтобы связать.</string>
     <string name="web_empty">Паутина пуста</string>
     <string name="web_empty_b">Поймай первую мысль: что угодно, что сейчас в голове.</string>
@@ -36,7 +36,12 @@
     <string name="b_lure">Вечер: примерь сегодняшний улов к «%1$s»</string>
     <string name="c_title">Что поймалось?</string>
     <string name="c_hint">Мысль, вопрос, что-то замеченное…</string>
-    <string name="c_say_prompt">Скажи мысль</string>
+    <string name="v_listening">Слушаю…</string>
+    <string name="v_listening_b">Говори. Чтобы закончить, нажми на микрофон ещё раз.</string>
+    <string name="v_nothing">Не удалось разобрать ни слова. Попробуй ещё раз, поближе к телефону.</string>
+    <string name="v_perm">Для голоса нужен микрофон. Его можно разрешить в настройках приложения.</string>
+    <string name="v_lang">У голосовой службы телефона пока нет этого языка. Попробуй микрофон на клавиатуре.</string>
+    <string name="v_none">Распознавание речи на этом телефоне не работает. Попробуй микрофон на клавиатуре.</string>
     <string name="catch_share">Поймать в Паутинку</string>
     <string name="sc_catch">Поймать мысль</string>
     <string name="sc_say">Сказать голосом</string>
@@ -45,7 +50,7 @@
     <string name="widget_desc">Записать или наговорить мысль за две секунды</string>
     <string name="k_idea">Идея</string>
     <string name="k_question">Вопрос</string>
-    <string name="k_notice">Заметил</string>
+    <string name="k_notice">Наблюдение</string>
     <string name="k_words">Слова</string>
     <string name="k_idea_b">Светлячок: что-то сделать, попробовать, придумать.</string>
     <string name="k_question_b">Репей с крючком: цепляется, пока не ответишь. Вопрос можно повесить приманкой.</string>
@@ -53,10 +58,10 @@
     <string name="k_words_b">Чужая шёлковая ниточка: цитата, строчка, подслушанная фраза.</string>
     <string name="n_caught">Прилипло к паутине</string>
     <string name="n_caught_night">Поймано ночью. Будет светиться.</string>
-    <string name="n_echo">Уже ловил</string>
+    <string name="n_echo">Такое уже было</string>
     <string name="n_echo_b">Почти то же, что «%1$s». Теперь они висят рядом, на толстой нити.</string>
     <string name="n_tied">Нить натянута</string>
-    <string name="n_tied_b">Теперь ветер не тронет обе мысли.</string>
+    <string name="n_tied_b">Теперь ветер не унесёт ни ту, ни другую.</string>
     <string name="n_tied_already">Они уже связаны</string>
     <string name="n_dew">Роса блеснула</string>
     <string name="n_wind_b">Они в Пухе, на вкладке «Мысли». Ничего не потерялось.</string>
@@ -67,7 +72,6 @@
     <string name="t_in_fluff">Ветер унёс эту мысль в Пух.</string>
     <string name="t_is_lure">Висит приманкой: вечером к ней примеряется сегодняшний улов.</string>
     <string name="t_no_threads">Нитей пока нет</string>
-    <string name="t_spin_need">Ещё мыслей: %1$d, и эту гроздь можно свернуть в кокон.</string>
     <string name="tie">Привязать к другой мысли</string>
     <string name="tie_title">Привязать к…</string>
     <string name="tie_none">Пока не к чему привязать.</string>
@@ -91,11 +95,11 @@
     <string name="search_hint">Поиск</string>
     <string name="o_new">Новые</string>
     <string name="o_tied">Самые связанные</string>
-    <string name="o_old">Давно не трогал</string>
+    <string name="o_old">Давно не открывались</string>
     <string name="list_empty">Пока ничего не поймано.</string>
     <string name="list_none">На паутине такого нет.</string>
     <string name="fluff">Пух</string>
-    <string name="fluff_b">Что унёс ветер: мысли, которые %1$d дн. висели без нитей и без внимания. Они не потерялись. Верни, если ещё важно.</string>
+    <string name="fluff_b">Сюда ветер уносит мысли, которые слишком долго провисели без нитей и без внимания. Они не потерялись: если мысль ещё важна, верни её на паутину.</string>
     <string name="fluff_empty">Ветер пока ничего не унёс.</string>
     <string name="fluff_empty_short">Пока пусто</string>
     <string name="fluff_when">поймано: %1$s, унесено: %2$s</string>
@@ -104,7 +108,7 @@
     <string name="cocoons">Коконы</string>
     <string name="ripe_now">Созрел: можно вскрывать</string>
     <string name="butterflies">Бабочки</string>
-    <string name="butterflies_empty">Бабочек пока нет. Свяжи в одну гроздь не меньше %1$d мыслей, сверни её в кокон, и через три дня вылетит первая.</string>
+    <string name="butterflies_empty">Бабочек пока нет. Свяжи в одну гроздь хотя бы %1$d мыслей, свей из неё кокон, и через три дня вылетит первая.</string>
     <string name="cocoon_wait">Мысли зреют в темноте. Когда кокон созреет, ты перечитаешь их разом и увидишь, что из них складывается.</string>
     <string name="hatch_b">Прочитай всё, не спеша. К чему это всё? Решение, план, первая строчка, «нет» — одной фразой.</string>
     <string name="hatch_hint">Одной фразой…</string>
@@ -129,6 +133,8 @@
     <string name="set_quick">Быстрый вход</string>
     <string name="set_quick_b">Долгое нажатие на иконку: «Поймать» и «Сказать голосом». Выдели текст в любом приложении или нажми «Поделиться», чтобы поймать его. А ещё:</string>
     <string name="add_widget">Добавить виджет на главный экран</string>
+    <string name="widget_asked">Виджет отправлен на рабочий стол</string>
+    <string name="widget_asked_b">Некоторые телефоны добавляют его без вопросов на последний экран. Если виджета нет, долго нажми на рабочий стол, открой «Виджеты» и найди «Паутинку».</string>
     <string name="add_tile">Добавить плитку в шторку</string>
     <string name="set_sound">Тихий звон</string>
     <string name="set_lang">Язык</string>
@@ -155,6 +161,12 @@
     <string name="about">О приложении</string>
     <string name="about_text">Паутинка %1$s. Бесплатно, без рекламы, без аккаунтов и без интернета. Шрифты: Cormorant, Lora, Caveat (SIL OFL). Лицензия MIT.</string>
     <string name="source">Исходный код на GitHub</string>
+    <plurals name="t_spin_need">
+        <item quantity="one">Ещё %1$d мысль в этой грозди — и из неё можно будет свить кокон.</item>
+        <item quantity="few">Ещё %1$d мысли в этой грозди — и из неё можно будет свить кокон.</item>
+        <item quantity="many">Ещё %1$d мыслей в этой грозди — и из неё можно будет свить кокон.</item>
+        <item quantity="other">Ещё %1$d мыслей в этой грозди — и из неё можно будет свить кокон.</item>
+    </plurals>
     <plurals name="on_web">
         <item quantity="one">%1$d мысль на паутине</item>
         <item quantity="few">%1$d мысли на паутине</item>

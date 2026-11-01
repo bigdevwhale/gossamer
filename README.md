@@ -17,13 +17,15 @@
 
 <img src="docs/screenshots/en/1-web.jpg" width="200" /> <img src="docs/screenshots/en/3-thought.jpg" width="200" /> <img src="docs/screenshots/en/5-butterflies.jpg" width="200" /> <img src="docs/screenshots/en/6-butterfly.jpg" width="200" />
 
+**[Download the APK](https://github.com/bigdevwhale/gossamer/releases/latest/download/Gossamer.apk)** · Android 9+
+
 </div>
 
 ---
 
 ## Catching
 
-- **Two seconds, from anywhere.** The home-screen widget (write or say it), a quick-settings tile, two long-press shortcuts on the icon, «Share» from any app, and selected text («Catch in Gossamer» in the text menu). Voice goes through the phone's own speech input.
+- **Two seconds, from anywhere.** The home-screen widget (write or say it), a quick-settings tile, two long-press shortcuts on the icon, «Share» from any app, and selected text («Catch in Gossamer» in the text menu). Voice is recognised right in the sheet by the phone's speech service.
 - **One field, four kinds.** A firefly for an idea, a burr for a question, dandelion down for something noticed, a wisp of someone else's silk for words. No titles, no tags, no folders.
 - **The night catch.** Thoughts caught after midnight glow, and in the morning the web shows what the night brought.
 - **«Caught before».** Write almost the same thing again, and the spider ties it to the old one with a thicker thread. The thoughts that keep coming back are the ones that matter.
@@ -50,7 +52,7 @@ The window changes with the hour (dawn, day, dusk, a moonlit night) and the seas
 
 ## Privacy
 
-No `INTERNET` permission, no accounts, no analytics. Everything lives in a database on the phone. Settings save the whole web as Markdown to read anywhere, or as a JSON backup to restore on another phone.
+No `INTERNET` permission, no accounts, no analytics. The microphone is asked for only when you first tap it. Everything lives in a database on the phone. Settings save the whole web as Markdown to read anywhere, or as a JSON backup to restore on another phone.
 
 ## Build
 

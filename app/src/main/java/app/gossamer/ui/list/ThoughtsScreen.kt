@@ -94,7 +94,7 @@ fun FluffPage(h: Home, nav: Nav) {
     val c = LocalContext.current.container
     var q by rememberSaveable { mutableStateOf("") }
     Page(stringResource(R.string.fluff), nav::close) {
-        Text(stringResource(R.string.fluff_b, h.s.windDays), style = T.Body.copy(color = C.silkD))
+        Text(stringResource(R.string.fluff_b), style = T.Body.copy(color = C.silkD))
         if (h.fluff.size > 6) Field(q, { q = it }, stringResource(R.string.search_hint), Modifier.fillMaxWidth())
         if (h.fluff.isEmpty()) Text(stringResource(R.string.fluff_empty), style = T.Italic)
         for (t in h.fluff.filter { q.isBlank() || it.text.contains(q.trim(), ignoreCase = true) }) Card(Modifier.fillMaxWidth(), pad = 12.dp) {

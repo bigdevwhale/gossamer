@@ -3,6 +3,10 @@
 
     <!-- No internet, no accounts: the web lives only on the phone. -->
 
+    <!-- Saying a thought instead of typing it; asked for on the first tap of the microphone. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+
     <application
         android:name=".GossamerApp"
         android:allowBackup="true"
@@ -85,7 +89,7 @@
 
     <queries>
         <intent>
-            <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
+            <action android:name="android.speech.RecognitionService" />
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />
